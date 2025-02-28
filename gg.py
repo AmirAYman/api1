@@ -32,10 +32,13 @@ def Tele(ccx):
         first_name = faker.first_name()  
         last_name = faker.last_name()  
         phone = faker.phone_number()
+        username = "pchigogKJE-res-any"
+        password = "PC_0Ap2T7KNFNbjNRWqL"
+        proxy = "proxy.rapidseedbox.com:5959"
         proxies = {
-            "http": "socks5://PPR0203L948:nP4d3jKX72j4gN@FINEPROXY.XYZ:2087",
-            "https": "socks5://PPR0203L948:nP4d3jKX72j4gN@FINEPROXY.XYZ:2087"
-}
+                    "http": f"http://{username}:{password}@{proxy}",
+                    "https": f"http://{username}:{password}@{proxy}"
+                }
         r = requests.Session()
         r.proxies.update(proxies)
         ip_response = r.get("http://httpbin.org/ip", timeout=10)
